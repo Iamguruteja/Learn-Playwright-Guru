@@ -13,6 +13,7 @@ test("verify the login with valid functionalities", async({page}) =>{
 test("verify the login with valid Username and invalid password", async({page}) =>{
 
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    
     await page.locator('input[name="username"]').fill('Admin')
     await page.locator("input[type='password']").fill("admin1234")
     await page.locator("//button[@type='submit']").click()

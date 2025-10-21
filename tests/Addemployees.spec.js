@@ -14,6 +14,7 @@ test("verify the add employees functionalities", async ({ page }) =>{
     let r = (Math.random() + 1).toString(36).substring(7)
     await page.locator('//input[@class="oxd-input oxd-input--active"]').last().fill(r)
     await page.locator('button[type="submit"]').click()
+    
     await expect(page.locator('//a[text()="Personal Details"]')).toBeVisible()
 
 })
