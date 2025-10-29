@@ -13,6 +13,9 @@ test("verify the add employees functionalities", async ({ page }) =>{
     await page.locator('input[name="lastName"]').fill("dodda thimmappa")
     let r = (Math.random() + 1).toString(36).substring(7)
     await page.locator('//input[@class="oxd-input oxd-input--active"]').last().fill(r)
+
+    //upload file 
+    await page.locator('input[type="file"]').setInputFiles('TestData/upload file/Virat Kohli aggressive_ (TEST).jpeg')
     await page.locator('button[type="submit"]').click()
     
     await expect(page.locator('//a[text()="Personal Details"]')).toBeVisible()
