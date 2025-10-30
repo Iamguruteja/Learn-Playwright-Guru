@@ -3,8 +3,8 @@ import {test, expect} from '@playwright/test'
 test("verify the add employees functionalities", async ({ page }) =>{
 
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-    await page.locator('input[name="username"]').fill('Admin')
-    await page.locator("input[type='password']").fill("admin123")
+    await page.locator('input[name="username"]').fill(process.env.APP_USERNAME)
+    await page.locator("input[type='password']").fill(process.env.APP_PASSWORD)
     await page.locator("//button[@type='submit']").click()
     await expect(page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
     await page.locator('//a[@href="/web/index.php/pim/viewPimModule"]').click()
